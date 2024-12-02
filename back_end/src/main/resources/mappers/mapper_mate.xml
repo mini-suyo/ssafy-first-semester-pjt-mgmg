@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ssafy.mvc.model.dao.MateDao">
+		
+	<!-- userNo로 메이트 검색 -->
+	<select id="selectByUserNo" parameterType="int" resultType="Mate">
+		SELECT * FROM Mate
+		WHERE userNo = #{userNo};
+	</select>
+	
+	<!-- 메이트 등록 -->
+	<insert id="insertMate" parameterType="Mate">
+		INSERT INTO mate (userNo, mateName, personality)
+		VALUES (#{userNo}, #{mateName}, #{personality});
+	</insert>
+	
+	<!-- 메이트 수정 -->
+	<update id="updateMate" parameterType="Mate">
+		UPDATE mate
+		SET mateName = #{mateName}, personality = #{personality}
+		WHERE userNo = #{userNo};
+	</update>
+	
+	<!-- 메이트 삭제 -->
+	<delete id="deleteMate" parameterType="int">
+		DELETE FROM mate
+		WHERE userNo = #{userNo};
+	</delete>
+	
+	
+	
+	
+	
+
+</mapper>

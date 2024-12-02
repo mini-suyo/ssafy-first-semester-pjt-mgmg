@@ -1,0 +1,41 @@
+/* 전역적으로 사용할 배경 설정 */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* 전체 화면 높이 */
+    width: 100%;  /* 전체 화면 너비 */
+    overflow: hidden; /* 스크롤바 제거 (선택 사항) */
+  }
+
+body{
+    background-color: #fff4e5;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.content{
+    display: flex;
+    flex: 1;
+}
+
+.left-area, .right-area {
+    height: 100%;
+    width: 50%;
+    overflow: auto; 
+    /* 콘텐츠가 넘칠 경우 스크롤 */
+    position: static;
+    overflow: hidden; /* 스크롤바 제거 (선택 사항) */
+}
+.main-img {
+ position: absolute;
+ right: 10rem;
+ bottom: 3rem;
+}
+
+/* 가로크기가 줄어들면 왼쪽만 보이게 */
+/* @media (max-width: 2200px){
+    .right-area{
+        display: none;
+    }
+} */

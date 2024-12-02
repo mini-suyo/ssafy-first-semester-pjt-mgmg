@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ssafy.mvc.model.dao.FriendDao">
+	
+	<!-- SELECT -->
+	<select id="selectAlL" resultType="Friend">
+		SELECT * FROM friend
+		WHERE userNo = #{userNo};
+	</select>
+	
+	<select id="isFriend" resultType="int">
+		SELECT COUNT(*) FROM friend
+		WHERE userNo = #{userNo} AND friendNo = #{friendNo};
+
+	</select>
+	
+
+	<!-- INSERT -->
+	<insert id="insertFriend" parameterType="Friend">
+		INSERT INTO friend (userNo, friendNo, friendName)
+		VALUES (#{userNo}, #{friendNo}, #{friendName});
+	</insert>
+
+	<!-- DELETE -->
+	<delete id="deleteFriend" parameterType="Friend">
+		DELETE FROM friend
+		WHERE userNo = #{userNo} AND friendNo = #{friendNo};
+	</delete>
+	
+	
+	
+
+</mapper>

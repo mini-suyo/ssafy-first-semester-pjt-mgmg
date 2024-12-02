@@ -1,0 +1,12 @@
+USE pjt_data;
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE `user`(
+    `userNo` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `id` VARCHAR(50) NOT NULL,
+    `password` VARCHAR(50) NOT NULL,
+    `userName` VARCHAR(50) NOT NULL,
+    `mateFlag` BOOLEAN DEFAULT FALSE
+) ENGINE=InnoDB DEFAULT CHARACTER SET = utf8mb4;
+    
+SELECT * FROM user;

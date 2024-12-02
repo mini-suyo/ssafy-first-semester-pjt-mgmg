@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.mvc.model.dao.DiaryDao">
+
+	<!-- SELECT -->
+	<select id="selectDiary" parameterType="int" resultType="Diary">
+		SELECT * FROM diary
+		WHERE userNo = #{userNo};
+	</select>
+
+	<select id="selectSummary" parameterType="int" resultType="Diary">
+		SELECT diaryNo, `date`, content
+		FROM (SELECT * FROM diary
+			    WHERE userNo = #{userNo}
+		    	)
+		ORDER BY `date` DESC
+		LIMIT 5;
+
+
+	</select>
+
+	<!-- INSERT -->
+	<insert id="insertDiary" parameterType="Diary">
+		INSERT INTO diary (userNo, date, imgURL, content)
+		VALUES (
+				#{userNo},
+		        #{date},
+				#{imgURL},
+				#{content}
+			   );
+	</insert>
+
+</mapper>
